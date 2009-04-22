@@ -25,7 +25,7 @@ private
         whoops = args.shift
         self.send($1, *args)
       rescue ActiveRecord::StatementInvalid => e
-        if e.to_s.include? whoops
+        if e.to_s.downcase.include? whoops.downcase
           say '  skipping'
           true
         else
